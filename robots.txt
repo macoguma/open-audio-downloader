@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://macoguma.github.io/open-audio-downloader/sitemap.xml
