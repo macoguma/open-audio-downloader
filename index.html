@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OpenAudio Downloader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+
+<div class="container">
+  <header>
+    <h1>🎵 OpenAudio Downloader</h1>
+    <button id="themeToggle">🌙</button>
+  </header>
+
+  <p class="subtitle">
+    Download Creative Commons & Public Domain audio — no ads.
+  </p>
+
+  <input type="url" id="audioUrl" placeholder="Paste direct audio link (MP3, WAV, OGG)">
+  <button id="addBtn">➕ Add to Queue</button>
+
+  <audio id="player" controls hidden></audio>
+
+  <ul id="queue"></ul>
+
+  <button id="downloadAll">⬇️ Download All</button>
+
+  <p id="status" class="status"></p>
+
+  <div class="sources">
+    <strong>Legal Sources:</strong><br>
+    <a href="https://archive.org/details/audio" target="_blank">Internet Archive</a> |
+    <a href="https://freepd.com" target="_blank">FreePD</a> |
+    <a href="https://www.jamendo.com/start" target="_blank">Jamendo</a>
+  </div>
+
+  <div class="legal">
+    ⚠️ Only download content you own or that is licensed for free distribution.
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
