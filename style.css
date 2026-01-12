@@ -1,84 +1,96 @@
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  transition: background 0.3s, color 0.3s;
-}
-
-body.dark {
-  background: #0b0b0b;
-  color: #00f3ff;
-}
-
-body.light {
-  background: #f4f4f4;
-  color: #000;
-}
-
-.container {
-  max-width: 460px;
-  margin: auto;
-  padding: 20px;
-  border-radius: 12px;
-  background: rgba(0,0,0,0.6);
-}
-
-body.light .container {
-  background: #fff;
+  background: #0f0f0f;
+  color: #f1f1f1;
 }
 
 header {
+  text-align: center;
+  padding: 30px 15px;
+  background: #121212;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header p {
+  opacity: 0.8;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.search-section {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.subtitle {
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-input, button {
-  width: 100%;
+.search-section input {
+  flex: 1;
   padding: 12px;
-  margin-top: 10px;
-}
-
-input {
-  border-radius: 6px;
-  border: 1px solid #00f3ff;
-}
-
-button {
+  font-size: 1rem;
+  border-radius: 4px;
   border: none;
-  border-radius: 6px;
-  font-weight: bold;
+}
+
+.search-section button {
+  padding: 12px 18px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+  background: #00bcd4;
+  color: #000;
 }
 
-#addBtn { background: #00f3ff; }
-#downloadAll { background: #00c853; color: #000; }
-
-ul {
-  list-style: none;
-  padding: 0;
+.search-section button:hover {
+  opacity: 0.9;
 }
 
-li {
-  padding: 6px;
-  font-size: 13px;
-  border-bottom: 1px solid #444;
+#results {
+  margin-top: 20px;
 }
 
-.status {
-  margin-top: 10px;
-  font-size: 13px;
+.result-item {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 12px;
 }
 
-.sources, .legal {
-  margin-top: 15px;
-  font-size: 12px;
+.result-item button,
+.result-item a {
+  margin-top: 8px;
+  display: inline-block;
 }
 
-a { color: #00f3ff; text-decoration: none; }
+.result-item button {
+  background: #00bcd4;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.result-item a {
+  color: #00e5ff;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
