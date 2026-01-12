@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>OpenAudio Downloader</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Open Audio Downloader – Free & Legal Music</title>
 
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Search and download free, legal audio files by artist name. Powered by Internet Archive. No ads." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="dark">
+<body>
 
-<div class="container">
   <header>
-    <h1>🎵 OpenAudio Downloader</h1>
-    <button id="themeToggle">🌙</button>
+    <h1>Open Audio Downloader</h1>
+    <p>Search artists & download free legal audio (No ads)</p>
   </header>
 
-  <p class="subtitle">
-    Download Creative Commons & Public Domain audio — no ads.
-  </p>
+  <main>
 
-  <input type="url" id="audioUrl" placeholder="Paste direct audio link (MP3, WAV, OGG)">
-  <button id="addBtn">➕ Add to Queue</button>
+    <!-- SEARCH SECTION -->
+    <section class="search-section">
+      <input
+        type="text"
+        id="artistInput"
+        placeholder="Enter artist name (e.g. Kevin MacLeod)"
+      />
+      <button onclick="searchArtist()">Search</button>
+    </section>
 
-  <audio id="player" controls hidden></audio>
+    <!-- RESULTS -->
+    <section id="results"></section>
 
-  <ul id="queue"></ul>
+  </main>
 
-  <button id="downloadAll">⬇️ Download All</button>
+  <footer>
+    <p>
+      Audio sourced from
+      <a href="https://archive.org" target="_blank" rel="noopener">Internet Archive</a>
+      • Creative Commons / Public Domain
+    </p>
 
-  <p id="status" class="status"></p>
+    <p>
+      © <span id="year"></span> Oguma Austine. All rights reserved.
+    </p>
+  </footer>
 
-  <div class="sources">
-    <strong>Legal Sources:</strong><br>
-    <a href="https://archive.org/details/audio" target="_blank">Internet Archive</a> |
-    <a href="https://freepd.com" target="_blank">FreePD</a> |
-    <a href="https://www.jamendo.com/start" target="_blank">Jamendo</a>
-  </div>
-
-  <div class="legal">
-    ⚠️ Only download content you own or that is licensed for free distribution.
-  </div>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
