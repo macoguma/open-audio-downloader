@@ -1,68 +1,99 @@
 const JAMENDO_CLIENT_ID = "7c801a96";
 
-const results = document.getElementById("results");
+const artistsEl = document.getElementById("artists");
+const resultsEl = document.getElementById("results");
 const statusEl = document.getElementById("status");
 const backBtn = document.getElementById("backBtn");
-const themeToggle = document.getElementById("themeToggle");
+const loadMoreBtn = document.getElementById("loadMoreBtn");
 
-let historyStack = [];
+let currentPage = 1;
+let lastQuery = "";
 
+// Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// THEME
-themeToggle.onclick = () => {
+// Theme
+document.getElementById("themeToggle").onclick = () => {
   document.body.classList.toggle("light");
-  localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
 };
-if (localStorage.getItem("theme") === "light") document.body.classList.add("light");
 
-// SEARCH
-async function search() {
+// Popular artists
+const popularArtists = [
+  "Kevin MacLeod",
+  "Jahzzar",
+  "Kai Engel",
+  "Chris Zabriskie",
+  "Broke For Free",
+  "Scott Holmes"
+];
+
+popularArtists.forEach(name => {
+  const d = document.createElement("div");
+  d.className = "artist-card";
+  d.textContent = name;
+  d.onclick = () => {
+    document.getElementById("searchInput").value = name;
+    searchTracks(true);
+  };
+  artistsEl.appendChild(d);
+});
+
+async function searchTracks(reset = true) {
   const q = document.getElementById("searchInput").value.trim();
-  if (!q) return;
+  const genre = document.getElementById("genreSelect").value;
+  const country = document.getElementById("countrySelect").value;
 
+  if (reset) {
+    currentPage = 1;
+    resultsEl.innerHTML = "";
+  }
+
+  lastQuery = q;
   backBtn.style.display = "block";
-  statusEl.textContent = "Searching Jamendo…";
-  results.innerHTML = "";
+  statusEl.textContent = "Loading tracks…";
 
-  historyStack.push(results.innerHTML);
+  let url = `https://api.jamendo.com/v3.0/tracks/?client_id=${JAMENDO_CLIENT_ID}&format=json&limit=12&offset=${(currentPage-1)*12}`;
 
-  const url = `https://api.jamendo.com/v3.0/tracks/?client_id=${JAMENDO_CLIENT_ID}&format=json&limit=20&search=${encodeURIComponent(q)}&include=musicinfo`;
+  if (q) url += `&search=${encodeURIComponent(q)}`;
+  if (genre) url += `&tags=${genre}`;
+  if (country) url += `&artist_location=${country}`;
 
   const res = await fetch(url);
   const data = await res.json();
 
-  if (!data.results.length) {
+  statusEl.textContent = "";
+  if (!data.results.length && reset) {
     statusEl.textContent = "No results found.";
     return;
   }
 
-  statusEl.textContent = "";
   renderTracks(data.results);
+  loadMoreBtn.style.display = data.results.length === 12 ? "block" : "none";
 }
 
-// RENDER
 function renderTracks(tracks) {
-  results.innerHTML = "";
   tracks.forEach(t => {
     const div = document.createElement("div");
     div.className = "card";
-
     div.innerHTML = `
-      <img src="${t.image}" alt="">
       <h3>${t.name}</h3>
       <small>${t.artist_name}</small>
       <audio controls src="${t.audio}"></audio>
-      <a class="download" href="${t.audio}" download>⬇ Download MP3</a>
-      <p><small>License: ${t.license_ccurl}</small></p>
+      <a href="${t.audio}" download>⬇ Download MP3</a>
+      <p><small>${t.license_ccurl}</small></p>
     `;
-
-    results.appendChild(div);
+    resultsEl.appendChild(div);
   });
 }
 
-// BACK
+function loadMore() {
+  currentPage++;
+  searchTracks(false);
+}
+
 function goBack() {
-  results.innerHTML = historyStack.pop() || "";
-  if (!historyStack.length) backBtn.style.display = "none";
+  resultsEl.innerHTML = "";
+  backBtn.style.display = "none";
+  loadMoreBtn.style.display = "none";
+  statusEl.textContent = "";
 }
