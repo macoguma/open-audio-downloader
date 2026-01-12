@@ -8,132 +8,92 @@
 .light {
   --bg: #ffffff;
   --fg: #111;
-  --card: #f2f2f2;
+  --card: #f3f3f3;
   --accent: #0066cc;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, sans-serif;
   background: var(--bg);
   color: var(--fg);
 }
 
-/* HEADER */
 header {
-  width: 100%;
   padding: 1rem;
+  text-align: center;
   background: var(--card);
 }
 
-header h1 {
-  margin: 0;
-  font-size: 1.4rem;
-}
-
-/* CONTROLS */
 .controls {
-  margin-top: 0.75rem;
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  margin-top: .5rem;
 }
 
 .controls input {
-  flex: 1;
-  min-width: 220px;
-  padding: 0.75rem;
-  font-size: 1rem;
+  padding: .6rem;
+  width: 60%;
+  max-width: 320px;
 }
 
 .controls button {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
+  padding: .6rem;
+  margin-left: .3rem;
   cursor: pointer;
 }
 
-/* MAIN */
 main {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
   padding: 1rem;
 }
 
 #backBtn {
   display: none;
   margin-bottom: 1rem;
-  padding: 0.6rem 1rem;
 }
 
 #status {
   text-align: center;
   margin: 1rem 0;
-  opacity: 0.85;
+  opacity: .8;
 }
 
-/* RESULTS GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
 }
 
-/* CARD */
 .card {
   background: var(--card);
   padding: 1rem;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 .card img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .card h3 {
-  margin: 0.5rem 0 0.2rem;
-  font-size: 1.05rem;
-}
-
-.card small {
-  opacity: 0.75;
+  margin: .5rem 0;
 }
 
 audio {
   width: 100%;
-  margin: 0.5rem 0;
+  margin: .5rem 0;
 }
 
 .download {
   display: inline-block;
-  margin-top: 0.4rem;
-  font-weight: 600;
+  margin-top: .4rem;
   color: var(--accent);
   text-decoration: none;
+  font-weight: 600;
 }
 
-/* FOOTER */
 footer {
-  width: 100%;
   text-align: center;
   padding: 1rem;
-  opacity: 0.6;
-  font-size: 0.9rem;
-}
-
-/* MOBILE BOOST */
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 1.2rem;
-  }
-
-  .controls input,
-  .controls button {
-    width: 100%;
-  }
+  opacity: .6;
 }
