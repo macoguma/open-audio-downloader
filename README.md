@@ -1,41 +1,18 @@
-# OpenAudio Downloader
+# Open Audio Downloader
 
-OpenAudio Downloader is a **frontend-only**, ad-free web application for downloading
-**Creative Commons** and **Public Domain** audio.
+A free, ad-free, non-commercial web application for discovering and downloading Creative Commons music legally.
 
-## Features
-- No ads
-- No backend
-- Download queue
-- Audio preview
-- Light / Dark mode
-- GitHub Pages compatible
+## Live Site
+https://macoguma.github.io/open-audio-downloader/
 
-## Supported Content
-- Direct MP3, WAV, OGG links
-- Creative Commons music
-- Public domain audio
+## Sources
+- Jamendo Music (Creative Commons)
 
-## ❗ LEGAL DISCLAIMER
-This software:
-- Does NOT bypass DRM
-- Does NOT access paid platforms
-- Does NOT host or redistribute audio files
-Search and download free, legal audio files by artist name.
-Powered by the Internet Archive. No ads. Frontend-only.
-This project does not host or store any audio files.
-All audio content is fetched directly from the Internet Archive (archive.org),
-which provides media shared under Creative Commons, Public Domain, or similar licenses.
-Users are responsible for checking and complying with individual license terms.
-Users are solely responsible for ensuring they have the legal right to download any content.
-The authors assume **no liability** for misuse.
+## Legal Notice
+All audio files are provided directly by Jamendo under Creative Commons licenses.
+Users must follow attribution requirements where applicable.
 
-## Recommended Legal Sources
-- Internet Archive
-- FreePD
-- Jamendo
+This project does not host, scrape, or bypass DRM-protected content.
 
-## License
-MIT License
-
-© Oguma Austine. All rights reserved.
+## Author
+© Oguma Austine. All Rights Reserved 
