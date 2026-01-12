@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Open Audio Downloader</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Download free Creative Commons music legally from Jamendo and other open sources.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Download free Creative Commons music by artist, genre, and country.">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,15 +14,46 @@
 
   <div class="controls">
     <input id="searchInput" type="text" placeholder="Search artist or track name…">
-    <button onclick="search()">Search</button>
+    
+    <select id="genreSelect">
+      <option value="">All Genres</option>
+      <option value="rock">Rock</option>
+      <option value="hiphop">Hip Hop</option>
+      <option value="pop">Pop</option>
+      <option value="electronic">Electronic</option>
+      <option value="jazz">Jazz</option>
+      <option value="classical">Classical</option>
+      <option value="reggae">Reggae</option>
+      <option value="afrobeat">Afrobeat</option>
+    </select>
+
+    <select id="countrySelect">
+      <option value="">All Countries</option>
+      <option value="US">USA</option>
+      <option value="GB">UK</option>
+      <option value="FR">France</option>
+      <option value="DE">Germany</option>
+      <option value="KE">Kenya</option>
+      <option value="NG">Nigeria</option>
+      <option value="ZA">South Africa</option>
+      <option value="BR">Brazil</option>
+    </select>
+
+    <button onclick="searchTracks()">Search</button>
     <button id="themeToggle">☀️ / 🌙</button>
   </div>
 </header>
 
 <main>
+  <section>
+    <h2>Popular Free Artists</h2>
+    <div id="artists" class="artist-grid"></div>
+  </section>
+
   <button id="backBtn" onclick="goBack()">⬅ Back</button>
   <div id="status"></div>
   <div id="results" class="grid"></div>
+  <button id="loadMoreBtn" onclick="loadMore()">Load more</button>
 </main>
 
 <footer>
