@@ -1,31 +1,49 @@
+:root {
+  --bg: #0f0f0f;
+  --text: #f1f1f1;
+  --card: #1a1a1a;
+  --accent: #00bcd4;
+}
+
+.light {
+  --bg: #ffffff;
+  --text: #111;
+  --card: #f3f3f3;
+  --accent: #007c91;
+}
+
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, Arial, sans-serif;
 }
 
 body {
   margin: 0;
-  background: #0f0f0f;
-  color: #f1f1f1;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
 }
 
-header {
+.header {
+  padding: 25px;
   text-align: center;
-  padding: 30px 15px;
-  background: #121212;
+  background: var(--card);
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2rem;
+.header-controls {
+  margin-top: 10px;
 }
 
-header p {
-  opacity: 0.8;
+.header button {
+  background: var(--accent);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 main {
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
@@ -39,58 +57,75 @@ main {
 .search-section input {
   flex: 1;
   padding: 12px;
-  font-size: 1rem;
-  border-radius: 4px;
-  border: none;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 .search-section button {
   padding: 12px 18px;
-  font-size: 1rem;
+  border-radius: 6px;
   border: none;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+.artists-section {
+  margin-bottom: 25px;
+}
+
+.artist-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.artist-list button {
+  background: var(--card);
+  border: 1px solid #444;
+  color: var(--accent);
+  padding: 6px 10px;
   border-radius: 4px;
   cursor: pointer;
-  background: #00bcd4;
-  color: #000;
 }
 
-.search-section button:hover {
-  opacity: 0.9;
+.back-btn {
+  margin: 15px 0;
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-#results {
-  margin-top: 20px;
+.hidden {
+  display: none;
+}
+
+.status {
+  margin: 10px 0;
+  opacity: 0.8;
 }
 
 .result-item {
-  background: #1a1a1a;
+  background: var(--card);
   padding: 15px;
-  border-radius: 6px;
-  margin-bottom: 12px;
-}
-
-.result-item button,
-.result-item a {
-  margin-top: 8px;
-  display: inline-block;
-}
-
-.result-item button {
-  background: #00bcd4;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 4px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  animation: fadeIn 0.3s ease;
 }
 
 .result-item a {
-  color: #00e5ff;
+  color: var(--accent);
   text-decoration: none;
 }
 
 footer {
   text-align: center;
   padding: 15px;
-  font-size: 0.9rem;
   opacity: 0.7;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
