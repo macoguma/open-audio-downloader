@@ -1,58 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Open Audio Downloader – Free & Legal Music</title>
-
-  <meta name="description" content="Browse or search artists and download free, legal audio files. No ads. Internet Archive powered." />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Open Audio Downloader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Download free Creative Commons music legally from Jamendo and other open sources.">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+<header>
+  <h1>🎧 Open Audio Downloader</h1>
 
-  <header class="header">
-    <h1>Open Audio Downloader</h1>
-    <p>Browse artists or search • Free & legal audio</p>
+  <div class="controls">
+    <input id="searchInput" type="text" placeholder="Search artist or track name…">
+    <button onclick="search()">Search</button>
+    <button id="themeToggle">☀️ / 🌙</button>
+  </div>
+</header>
 
-    <div class="header-controls">
-      <button id="themeToggle">🌙</button>
-    </div>
-  </header>
+<main>
+  <button id="backBtn" onclick="goBack()">⬅ Back</button>
+  <div id="status"></div>
+  <div id="results" class="grid"></div>
+</main>
 
-  <main>
+<footer>
+  © <span id="year"></span> Oguma Austine · Open Audio Downloader
+</footer>
 
-    <!-- SEARCH -->
-    <section class="search-section">
-      <input id="artistInput" type="text" placeholder="Search artist name (optional)">
-      <button onclick="searchArtist()">Search</button>
-    </section>
-
-    <!-- FEATURED ARTISTS -->
-    <section class="artists-section" id="artistsSection">
-      <h2>Featured Free Artists (A–Z)</h2>
-      <div id="artistList" class="artist-list"></div>
-    </section>
-
-    <!-- BACK BUTTON -->
-    <button id="backBtn" class="back-btn hidden" onclick="goBack()">← Back</button>
-
-    <!-- STATUS -->
-    <div id="status" class="status"></div>
-
-    <!-- RESULTS -->
-    <section id="results"></section>
-
-  </main>
-
-  <footer>
-    <p>
-      Audio sourced from
-      <a href="https://archive.org" target="_blank" rel="noopener">Internet Archive</a>
-    </p>
-    <p>© <span id="year"></span> Oguma Austine. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
